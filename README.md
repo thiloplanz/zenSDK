@@ -10,10 +10,10 @@
 
 This project contains multilingual documentation. Please select your language:
 
-* 🇨🇳 [中文](../zenSDK/docs/zh.md)
-* 🇬🇧 [English](../zenSDK/README.md)
-* 🇩🇪 [Deutsch](../zenSDK/docs/de.md)
-* 🇫🇷 [Français](../zenSDK/docs/fr.md)
+* 🇨🇳 [中文](./docs/zh.md)
+* 🇬🇧 [English](./README.md)
+* 🇩🇪 [Deutsch](./docs/de.md)
+* 🇫🇷 [Français](./docs/fr.md)
 
 ---
 
