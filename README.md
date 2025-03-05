@@ -116,4 +116,5 @@ curl -X GET "http://<server-ip>/properties/report"
 curl -X POST "http://<server-ip>/properties/write" -H "Content-Type: application/json" -d '{"sn": "your_device_sn","properties":{"acMode":2}}'
 ```
 
-## Product Attribute Descriptions
+## Product Properties Descriptions
+* [SolarFlow 800](./en_properties.md)

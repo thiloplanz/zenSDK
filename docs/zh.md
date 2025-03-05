@@ -2,7 +2,7 @@
  * @Author: dav1d wei.liu@zendure.com
  * @Date: 2025-03-04 14:39:17
  * @LastEditors: dav1d wei.liu@zendure.com
- * @LastEditTime: 2025-03-05 18:59:59
+ * @LastEditTime: 2025-03-05 19:40:00
  * @FilePath: /zenSDK/docs/zh.md
  * @Description: 
  * 
@@ -131,3 +131,4 @@ curl -X POST "http://<server-ip>/properties/write" -H "Content-Type: application
 ```
 
 ## 产品属性解释说明
+* [SolarFlow 800](./zh_properties.md)
