@@ -87,6 +87,20 @@ POST /properties/write      # Steuerbefehle senden, z. B. Gerät ein-/ausschalte
     }
 }
 ```
+## **Windows/MacOS/Linux mDNS-Diensterkennung**
+### Windows (PowerShell)
+```powershell
+Get-Service | Where-Object { $_.Name -like "*Bonjour*" }
+```
+### MacOS
+```sh
+dns-sd -B _zendure._tcp
+```    
+### Linux
+```sh
+avahi-browse -r _zendure._tcp
+```  
+
 
 ## **Beispielaufrufe**
 

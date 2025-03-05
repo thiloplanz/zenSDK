@@ -2,7 +2,7 @@
  * @Author: dav1d wei.liu@zendure.com
  * @Date: 2025-03-04 14:39:17
  * @LastEditors: dav1d wei.liu@zendure.com
- * @LastEditTime: 2025-03-05 14:49:23
+ * @LastEditTime: 2025-03-05 18:59:59
  * @FilePath: /zenSDK/docs/zh.md
  * @Description: 
  * 
@@ -100,6 +100,20 @@ POST /properties/write      # 发送控制指令，如开关控制
     }
 }
 ```
+
+## **Windows/MacOS/Linux mDNS 服务发现**
+### Windows (PowerShell)
+```powershell
+Get-Service | Where-Object { $_.Name -like "*Bonjour*" }
+```
+### MacOS
+```sh
+dns-sd -B _zendure._tcp
+```    
+### Linux
+```sh
+avahi-browse -r _zendure._tcp
+```  
 
 ## **调用示例**
 

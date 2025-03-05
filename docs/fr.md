@@ -87,6 +87,19 @@ POST /properties/write      # Envoyer des commandes de contrôle, comme activer/
     }
 }
 ```
+## **Windows/MacOS/Linux Découverte de service mDNS**
+### Windows (PowerShell)
+```powershell
+Get-Service | Where-Object { $_.Name -like "*Bonjour*" }
+```
+### MacOS
+```sh
+dns-sd -B _zendure._tcp
+```    
+### Linux
+```sh
+avahi-browse -r _zendure._tcp
+```  
 
 ## **Exemples d’appel**
 
