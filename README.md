@@ -117,4 +117,4 @@ curl -X POST "http://<server-ip>/properties/write" -H "Content-Type: application
 ```
 
 ## Product Properties Descriptions
-* [SolarFlow 800](./en_properties.md)
+* [SolarFlow 800](./docs/en_properties.md)
