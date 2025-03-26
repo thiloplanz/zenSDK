@@ -10,7 +10,7 @@
 
 This project contains multilingual documentation. Please select your language:
 
-* 🇨🇳 [中文](./docs/zh.md)
+* 🇨🇳 [中文 ](./docs/zh.md)
 * 🇬🇧 [English](./README.md)
 * 🇩🇪 [Deutsch](./docs/de.md)
 * 🇫🇷 [Français](./docs/fr.md)
