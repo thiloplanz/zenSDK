@@ -109,6 +109,7 @@ avahi-browse -r _zendure._tcp
 * [JavaScript Example](./examples/JavaScript/demo.js)
 * [PHP Example](./examples/PHP/demo.php)
 * [Python Example](./examples/Python/demo.py)
+* [Home Assistant Example](./examples/HomeAssistant/restful.yaml)
 * **Windows/MacOS/Linux Command Line**
 
 ```sh

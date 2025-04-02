@@ -1,0 +1,24 @@
+#
+# This is an example how to use the RESTful integration that comes with Home Assistant
+# to define entities that get their values from polling zenSDK locally on your device.
+#
+#      https://www.home-assistant.io/integrations/rest/
+
+rest:
+  - resource: "http://espressif/properties/report"    # edit the hostname for HA to reach your device
+    sensor:
+      - name: "Zendure SolarFlow Solar Input"
+        value_template: "{{ value_json['properties']['solarInputPower'] }}"
+        device_class: "power"
+        unit_of_measurement: "W"
+        unique_id: "solarflow_solarInputPower"   # you can change this to include deviceId for uniqueness
+      - name: "Zendure SolarFlow Home Output"
+        value_template: "{{ value_json['properties']['outputHomePower'] }}"
+        device_class: "power"
+        unit_of_measurement: "W"
+        unique_id: "solarflow_outputHomePower"
+      - name: "Zendure SolarFlow Battery Level"
+        value_template: "{{ value_json['properties']['electricLevel'] }}"
+        device_class: "battery"
+        unit_of_measurement: "%"
+        unique_id: "solarflow_electricLevel"
