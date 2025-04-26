@@ -1,0 +1,31 @@
+# add these automations to your automations.yaml
+
+# They are to set the solarflow_input_output_limit input_number (a slider)
+# defined in restful.yaml according to the value reported by the sensor
+# and to make an API call to adjust the output limit when the slider is moved
+
+
+# automation to set the current value to the input slider
+# automation:
+- alias: "Set Home Output Slider"
+  triggers:
+    - trigger: state
+      entity_id: sensor.zendure_solarflow_home_output_limit
+  actions:
+    - action: input_number.set_value
+      target:
+        entity_id: input_number.solarflow_input_output_limit
+      data:
+        value: "{{ trigger.to_state.state }}"
+# This second automation script runs when the slider is moved.
+# It sends the new value to the device
+- alias: "Home Output Slider Updated"
+  triggers:
+    - trigger: state
+      entity_id: input_number.solarflow_input_output_limit
+  actions:
+    - action: rest_command.solarflow_set_output_limit
+      data:
+        sn: WOB1NHMAMXXXXX3     ### Put your device SN here!
+        outputLimit: "{{trigger.to_state.state }}"
+

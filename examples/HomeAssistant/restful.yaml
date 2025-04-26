@@ -5,20 +5,49 @@
 #      https://www.home-assistant.io/integrations/rest/
 
 rest:
-  - resource: "http://espressif/properties/report"    # edit the hostname for HA to reach your device
+  - resource: http://espressif/properties/report    # edit the hostname for HA to reach your device
     sensor:
       - name: "Zendure SolarFlow Solar Input"
         value_template: "{{ value_json['properties']['solarInputPower'] }}"
-        device_class: "power"
-        unit_of_measurement: "W"
-        unique_id: "solarflow_solarInputPower"   # you can change this to include deviceId for uniqueness
+        device_class: power
+        unit_of_measurement: W
+        unique_id: solarflow_solarInputPower   # you can change this to include deviceId for uniqueness
       - name: "Zendure SolarFlow Home Output"
         value_template: "{{ value_json['properties']['outputHomePower'] }}"
-        device_class: "power"
-        unit_of_measurement: "W"
-        unique_id: "solarflow_outputHomePower"
+        device_class: power
+        unit_of_measurement: W
+        unique_id: solarflow_outputHomePower
       - name: "Zendure SolarFlow Battery Level"
         value_template: "{{ value_json['properties']['electricLevel'] }}"
-        device_class: "battery"
+        device_class: battery
         unit_of_measurement: "%"
-        unique_id: "solarflow_electricLevel"
+        unique_id: solarflow_electricLevel
+      - name: Zendure SolarFlow Home Output Limit
+        value_template: "{{ value_json['properties']['outputLimit'] }}"
+        device_class: battery
+        unit_of_measurement: "W"
+        unique_id: solarflow_outputLimit
+
+# a rest_command is used to write zenSDK settings
+# this can then be used in automations
+# you have the send the value to set as well as the serial number for authentication
+# as "data" to the commands
+
+# the automations are defined in automations.yaml
+
+rest_command:
+  solarflow_set_output_limit:
+    name: "Set SolarFlow Home Output limit"
+    url: http://espressif/properties/write
+    method: POST
+    payload: '{"sn":"{{sn}}", "properties": {"outputLimit": {{outputLimit}} }}'
+
+# we can then use an input slider that will be connected to the property via automations
+input_number:
+  solarflow_input_output_limit:
+    name: Target SolarFlow Home Output Slider
+    min: 0
+    max: 800
+    step: 50
+    unit_of_measurement: W
+    icon: mdi:battery-arrow-down
